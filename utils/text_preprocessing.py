@@ -68,5 +68,3 @@ def correct_spelling(text):
         suggestion = sym_spell.lookup(word, Verbosity.CLOSEST, max_edit_distance=2)
         corrected_words.append(suggestion[0].term if suggestion else word)
     return " ".join(corrected_words)
-
-print(correct_spelling("The qick brwn fox jmps ovr the lazi dg."))
