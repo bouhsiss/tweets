@@ -12,7 +12,7 @@ This Jupyter Notebook serves as the main entry point for the sentiment analysis 
 - **Data Preprocessing**: Cleans the data by removing duplicates and stop words, and transforms the text to lowercase.
 - **Data Splitting**: Splits the dataset into training and testing sets while maintaining the sentiment distribution.
 - **Text Preprocessing and Vectorization**: Prepares the text data using various preprocessing techniques (stemming, lemmatization, etc.) and vectorization methods (binary, count, TF-IDF).
-- **Model Training**: Trains different machine learning models (Logistic Regression, SVM, Random Forest) on the processed datasets and evaluates their performance.
+- **Model Training**: Trains different machine learning models (Logistic Regression, SVM, Random Forest) on the processed datasets and evaluates their performance. The best hyperparameters for each model are determined using GridSearchCV.
 - **Sentiment Prediction**: Provides functionality to predict the sentiment of new text inputs using the trained models.
 
 ### 2. `utils/text_preprocessing.py`
@@ -21,6 +21,8 @@ This module contains functions for preprocessing text data. The key functionalit
 - **Stemming**: Reduces words to their base or root form using the Porter Stemmer.
 - **Lemmatization**: Converts words to their base form based on their part of speech using the WordNet lemmatizer.
 - **Spelling Correction**: Corrects misspelled words using the SymSpell algorithm.
+- **Remove Punctuation**: Eliminates punctuation from the text to clean the data.
+
 
 ### 3. `utils/text_vectorization.py`
 This module provides functions for converting text data into numerical vectors suitable for machine learning models. The key functionalities include:

@@ -4,6 +4,7 @@ from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer, WordNetLemmatizer
 from nltk.corpus import wordnet
 from symspellpy import SymSpell, Verbosity
+import string
 
 
 # Map NLTK POS tags to WordNet POS tags
@@ -28,6 +29,11 @@ def tokenize(text):
     Tokenizes the input text into words.
     """
     return word_tokenize(text)
+
+
+def tokenize_text(text):
+    tokenized_words = tokenize(text)
+    return " ".join(tokenized_words)    
 
 def stem_text(text):
     """
@@ -68,3 +74,7 @@ def correct_spelling(text):
         suggestion = sym_spell.lookup(word, Verbosity.CLOSEST, max_edit_distance=2)
         corrected_words.append(suggestion[0].term if suggestion else word)
     return " ".join(corrected_words)
+
+
+def remove_punctuation(text):
+    return text.translate(str.maketrans('', '', string.punctuation))
